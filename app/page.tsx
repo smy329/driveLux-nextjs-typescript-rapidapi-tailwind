@@ -1,3 +1,4 @@
+import CustomButton from '@/components/CustomButton';
 import Hero from '@/components/Hero';
 import Image from 'next/image';
 
