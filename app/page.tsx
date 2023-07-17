@@ -3,6 +3,7 @@ import CustomButton from '@/components/CustomButton';
 import CustomFilter from '@/components/CustomFilter';
 import Hero from '@/components/Hero';
 import Searchbar from '@/components/Searchbar';
+import ShowMore from '@/components/ShowMore';
 import { fuels, yearsOfProduction } from '@/constants';
 import { fetchCars } from '@/utils';
 import Image from 'next/image';
@@ -43,6 +44,11 @@ export default async function Home({ searchParams }) {
                 <CarCard key={idx} car={car} />
               ))}
             </div>
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              //check if isNext is bigger that allCars ? Means do we have more to show?
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="home__error-container">
